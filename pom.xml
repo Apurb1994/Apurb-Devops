@@ -17,12 +17,12 @@
   </dependencies>
   <distributionManagement>
 		 <snapshotRepository>
-		    <id>nexus</id>
+		    <id>nexusRepo</id>
 		    <url>http://13.233.233.227:8081/repository/Apurb-Devops-snapshot/</url>
 		 </snapshotRepository>
 		
 		<repository>
-		    <id>nexus</id>
+		    <id>nexusRepo</id>
 		    <url>http://13.233.233.227:8081/repository/Apurb-Devops/</url>
 		</repository>
   	</distributionManagement>
