@@ -24,7 +24,7 @@ pipeline{
 		            	{
 							
 		            		steps{
-								scripts
+								script
 								{
 									def pomfile = readMavenPom file: 'pom.xml'
 									def version = pomfile.version
