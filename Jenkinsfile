@@ -22,16 +22,23 @@ pipeline{
 		               	}
 						   stage('Nexus deploy')
 		            	{
+							def pomfile = readMavenPom file: 'pom.xml'
+							def version = pomfile.version
+							def nexusRepo= version.endsWith("SNAPSHOT") ? "Apurb-Devops-snapshot": "Apurb-Devops"
 		            		steps{
+								scripts
+								{
 		                        	nexusArtifactUploader artifacts: [[artifactId: 'Apurb-Devops', classifier: 'debug', file: 'target/Apurb-Devops.war', type: 'war']],
 									 credentialsId: 'nexus3', 
 									 groupId: 'in.javahome', 
 									 nexusUrl: '172.31.43.5:8081',
 									  nexusVersion: 'nexus3',
 									   protocol: 'http',
-									    repository: 'Apurb-Devops-snapshot', 
-										version: '2.0-SNAPSHOT'
-		                       	}
+									    repository: nexusRepo, 
+										version: version
+								}	
+		                       	} 
+
 		               	}
           }
 }
