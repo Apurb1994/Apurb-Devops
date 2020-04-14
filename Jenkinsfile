@@ -41,5 +41,20 @@ pipeline{
 		                       	} 
 
 		               	}
+						   stage('Deploy Tomcat')
+		            	{
+		            		steps{
+									sshagent(['tomcat-dev']) {
+										sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.33.102: /opt/tomcat8/webapp/Apurb-Devops.war"
+										sh "ec2-user@172.31.33.102: /opt/tomcat8/bin/shutdown.sh"
+										sh "ec2-user@172.31.33.102: /opt/tomcat8/bin/startup.sh"
+												}
+
+
+
+
+
+		                        		                       	}
+		               	}
           }
 }
