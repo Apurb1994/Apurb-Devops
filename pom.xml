@@ -15,7 +15,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <distributionManagement>
+  <!-- <distributionManagement>
 		 <snapshotRepository>
 		    <id>nexusRepo</id>
 		    <url>http://13.233.233.227:8081/repository/Apurb-Devops-snapshot/</url>
@@ -25,7 +25,8 @@
 		    <id>nexusRepo</id>
 		    <url>http://13.233.233.227:8081/repository/Apurb-Devops/</url>
 		</repository>
-  	</distributionManagement>
+  	</distributionManagement> 
+  -->
   <build>
     <finalName>Apurb-Devops</finalName>
   </build>
