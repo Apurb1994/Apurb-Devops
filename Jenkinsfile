@@ -59,10 +59,14 @@ pipeline{
           }
 	post {
   success {
-    // One or more steps need to be included within each condition's block.
+    mail bcc: '', body: '''Hi Devops Team,
+
+ Build has been successfully generated''', cc: '', from: '', replyTo: '', subject: 'Build - Success', to: 'catchapurb1994gmail.com'.
   }
   failure {
-    // One or more steps need to be included within each condition's block.
+    mail bcc: '', body: '''Hi Devops Team,
+
+ Build has been successfully generated''', cc: '', from: '', replyTo: '', subject: 'Build - Failed', to: 'catchapurb1994gmail.com'
   }
 }
 
