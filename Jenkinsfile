@@ -57,4 +57,13 @@ pipeline{
 		                        		                       	}
 		               	}
           }
+	post {
+  success {
+    // One or more steps need to be included within each condition's block.
+  }
+  failure {
+    // One or more steps need to be included within each condition's block.
+  }
+}
+
 }
