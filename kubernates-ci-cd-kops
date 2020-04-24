@@ -1,0 +1,31 @@
+pipeline{
+  agent any
+  tools{
+  maven 'maven3'
+  }
+  stages{
+       stage('maven buld')
+   {
+    steps{
+    sh 'mvn clean package'
+        }
+        }
+       stage('Build Docker image')
+       {
+           sh "docket build -t kammana:/pets-app:v1 . "
+       }
+       stage('docekr push')
+       {
+           sh 'docker login -u apurb1994 -p *****'
+           sh 'docker push kammana:/pets-app:v1'
+       }
+       
+       stage('Kubernetes depploy')
+       {
+           kubernetesDeploy configs: 'pods.yml', kubeConfig: [path: ''], kubeconfigId: 'K8s-weekend', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+       }
+      
+   
+   
+  }
+}
